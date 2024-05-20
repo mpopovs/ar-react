@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'wouter';
 import Home from './Home';
 import Dream from './Dream'; 
-import './index.css';
+
 
 export default function App() {
   return (

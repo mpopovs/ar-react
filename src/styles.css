@@ -1,0 +1,168 @@
+/* Full screen styles */
+.full-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: azure;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Ensure a single column layout */
+  gap: 16px;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove media queries to keep the layout consistent across all screen sizes */
+
+/* Card Styles */
+.card {
+  padding: 16px;
+  margin-top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card img {
+  height: auto;
+  max-width: 80%;
+}
+
+/* Instruction Styles */
+.instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  height: 100%;
+}
+
+.instruction img {
+  height: auto;
+  max-width: 100%;
+  width: 40%;
+}
+
+/* Fixed Bottom Content */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 100px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the pulse animation to the button */
+.start-button {
+  background-color: #4299e1; /* blue-500 */
+  color: white;
+  font-weight: bold;
+  padding: 16px 58px; /* py-2 px-4 */
+  font-size: medium;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: pulse 1.5s infinite; /* Apply pulse animation */
+}
+
+.start-button:hover {
+  background-color: #2b6cb0; /* blue-700 */
+}
+
+/* Support Section */
+.support-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  width: 100%; /* Ensure the section takes the full width */
+}
+
+.support-section p {
+  margin-top: 8px; /* mt-2 */
+  font-size: 12px; /* text-xs */
+}
+
+.support-section .icons {
+  display: flex;
+  flex-direction: row;
+  width: 100%; /* Make sure the icons container takes the full width */
+  padding: 0 16px; /* Add padding to the sides if needed */
+}
+
+.support-section img {
+  height: auto;
+  width: 20%; /* Adjust as needed */
+}
+.close {
+  position: absolute;
+  top: 16px; /* Adjust as needed */
+  right: 16px; /* Adjust as needed */
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  cursor: pointer;
+  z-index: 100;
+}
+
+.logo {
+  position: absolute;
+  bottom: 16px; /* Adjust as needed */
+  right: 16px; /* Adjust as needed */
+  width: 80px; /* Adjust size as needed */
+  height: auto; /* Adjust size as needed */
+  
+  z-index: 100;
+}
+.center-text {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  font-weight: bold; /* Make text bold */
+  text-align: center; /* Center text within its container */
+}
+@media (min-width: 1024px) {
+  .card img {
+    
+    max-width: 60%;
+  }
+  .instruction {
+    padding: 10% 20%;
+  }
+  .support-section img {
+    width: 15%; /* Adjust as needed */
+  }
+
+  .start-button {
+    font-size: 30px;
+    padding: 4% 9%;
+  }
+}

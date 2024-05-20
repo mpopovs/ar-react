@@ -1,66 +1,65 @@
-// Home.jsx
-import React, { useRef } from 'react';
-import { Link, useLocation } from 'wouter';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Box, Stars, OrbitControls } from '@react-three/drei';
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import React from 'react';
+import { useLocation } from 'wouter';
+import { BrowserView, MobileView } from 'react-device-detect';
+
+import './styles.css'; // Import the CSS file
 
 
-function RotatingBox(props) {
-    const [, setLocation] = useLocation(); // Get setLocation function
-  const ref = useRef();
-  useFrame((_, delta) => {
-    ref.current.rotation.y += delta * props.speed;
-  });
-
+function Instrukcija() {
   return (
-   
-    <Box 
-    ref={ref} {...props} 
-    args={[1, 1, 1]} 
-    position={[0, 0, 0]}
-    onClick={() => setLocation('/dream')} // Set location to "/dream" on click
-  >
-    <meshStandardMaterial color="orange" />
-  </Box>
+    <>
+      <div className="instruction">
+        <img src="/instrukcija-m.svg" alt="Instrukcija" />
+      </div>
+    </>
   );
 }
 
 export default function Home() {
-    
+  const [, setLocation] = useLocation(); // Get setLocation to navigate
+
+  
 
   return (
-    <div>
-      <h2 className="text-3xl font-bold underline">Spied uz kubu!</h2>
+    <div className="full-screen bg-custom-bg">
+      <MobileView>
+     <div className="grid-layout portrait-only">
+        <div className="card">
+          <img src="/cover.svg" alt="Instrukcija" />
+        </div>
+
+        <Instrukcija />
+
+        
+        
+       
+         
+        
+      </div>
+
+      {/* Fixed bottom content */}
+      <div className="fixed-bottom ">
+        <div className="button-container">
+          <button
+            onClick={() => setLocation('/dream')}
+            className="start-button"
+          >
+            Sākt apskati
+          </button>
+        </div>
+        <div className="support-section">
+         
+          <div className="icons">
+            <img src="/r-icon.svg" alt="Instrukcija" />
+            <img src="/m_icon.svg" alt="Instrukcija" />
+            <img src="/clay-logo.svg" alt="Instrukcija" />
+          </div>
+        </div>
+      </div>
+      </MobileView>
       <BrowserView>
-  <h1 className='text-zinc-400'>This is rendered only in browser</h1>
-</BrowserView>
-<MobileView>
-  <h1>This is rendered only on mobile</h1>
-</MobileView>
-
-      <Canvas >
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-       <RotatingBox
-       speed={0.15}
-       />
-
-        {/* Rotating Stars with Custom Props */}
-        {/* <RotatingStars
-          radius={30} 
-          depth={10} 
-          count={5000} 
-          factor={4} 
-          saturation={1} 
-          fade 
-          speed={0.15} // Rotation speed
-        /> */}
-        <OrbitControls/>
-      </Canvas>
-
-      
+          <h1 className="browser-view-text">Atver šo lapu mobilajā telefonā!</h1>
+        </BrowserView>
     </div>
   );
 }
